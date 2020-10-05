@@ -10,14 +10,8 @@ namespace Uppgift_Lexicon_Test
         {
             Console.WriteLine("Hello World!");
 
-            create_Array();
-
-            //ConsoleKeyInfo c = Console.ReadKey();
-            //if (c.Key == ConsoleKey.Tab)
-            //{
-            //    Console.WriteLine("Tab pressed");
-            //}
-
+            check_Palindom();
+            
             Console.ReadLine();
         }
         public static void printHello()
@@ -106,18 +100,13 @@ namespace Uppgift_Lexicon_Test
 
         public static void create_file(string text)
         { 
-            //text = Console.ReadLine();
-            // WriteAllText creates a file, writes the specified string to the file,
-            // and then closes the file.    You do NOT need to call Flush() or Close().
             System.IO.File.WriteAllText(@"C:\Users\nazmu\Desktop\WriteText.txt", text);
-
         }
 
         public static void read_file()
         {
             string text = System.IO.File.ReadAllText(@"C:\Users\nazmu\Desktop\WriteText.txt");
-
-            // Display the file contents to the console. Variable text is a string.
+            
             System.Console.WriteLine($"Contents of WriteText.txt is {text}" );
 
         }
@@ -194,6 +183,51 @@ namespace Uppgift_Lexicon_Test
             {
                 Console.WriteLine("In the coppied array {0} numbers is : {1}", j+1 , copied_array[j]);
             }
+            
+        }
+
+        public static void check_Palindom()
+        {
+            string entered_Name = Console.ReadLine();
+
+            int startIndex = 0;
+            int lastindex = 0;
+            bool match = false;
+            int count = 0;
+
+            if (entered_Name.Length==1) 
+            {
+                Console.WriteLine($"{entered_Name} is palindom. ");
+            }
+            else
+            {
+                for (int i = 0; i <= entered_Name.Length - 1; i++)
+                {
+                    startIndex = i;
+                    lastindex = entered_Name.Length - 1 - i;
+
+                    if (entered_Name[startIndex] == entered_Name[lastindex])
+                    {
+                        count++;
+                    }
+                    if (count == entered_Name.Length / 2)
+                    {
+                        match = true;
+
+                    }
+
+                }
+                if (match == true)
+                {
+                    Console.WriteLine($"{entered_Name} is palindom. ");
+                }
+                else
+                {
+                    Console.WriteLine($"{entered_Name} is not palindom.");
+                }
+
+            } 
+
             
         }
         
