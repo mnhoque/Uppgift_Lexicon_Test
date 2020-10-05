@@ -10,7 +10,7 @@ namespace Uppgift_Lexicon_Test
         {
             Console.WriteLine("Hello World!");
 
-            print_multiplication();
+            create_Array();
 
             //ConsoleKeyInfo c = Console.ReadKey();
             //if (c.Key == ConsoleKey.Tab)
@@ -166,6 +166,36 @@ namespace Uppgift_Lexicon_Test
             
         }
 
+        public static void create_Array()
+        {
+            int[] rollno = new int[10];
+            int[] copied_array = new int[rollno.Length]; //New Array and the size of a which is 4
+
+            Random rand = new Random();
+
+
+            for (int s = 0; s <= 9; s++)
+            {
+                rollno[s] = rand.Next(1, 100);
+                //rollno[s] += 110;
+
+            }
+
+            Array.Sort(rollno);
+
+            for (int j = 0; j <= 9; j++)
+            {
+                Console.WriteLine("In the array {0} numbers is : {1}", j + 1, rollno[j]);
+            }
+
+            Array.Copy(rollno, copied_array, rollno.Length);
+
+            for (int j = 0; j <= 9; j++)
+            {
+                Console.WriteLine("In the coppied array {0} numbers is : {1}", j+1 , copied_array[j]);
+            }
+            
+        }
         
     }
 }
