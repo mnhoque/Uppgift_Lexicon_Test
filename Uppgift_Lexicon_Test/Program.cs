@@ -12,6 +12,12 @@ namespace Uppgift_Lexicon_Test
 
             print_multiplication();
 
+            //ConsoleKeyInfo c = Console.ReadKey();
+            //if (c.Key == ConsoleKey.Tab)
+            //{
+            //    Console.WriteLine("Tab pressed");
+            //}
+
             Console.ReadLine();
         }
         public static void printHello()
@@ -129,7 +135,13 @@ namespace Uppgift_Lexicon_Test
 
         public static void print_multiplication()
         {
-            int count = 1;
+            int count = 0;
+            ConsoleKeyInfo c = Console.ReadKey();
+            if (c.Key == ConsoleKey.Tab)
+            {
+                Console.WriteLine("Tab pressed");
+                count = 1;
+            }
 
             while (count < 11)
             {
@@ -143,10 +155,17 @@ namespace Uppgift_Lexicon_Test
                 Console.WriteLine();
                 Console.WriteLine();
 
-                count = count + 1;
+                ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
+                if (consoleKeyInfo.Key == ConsoleKey.Tab)
+                {
+                    Console.WriteLine($"tab pressed again now the counter is {count+1}");
+                    count = count + 1;
+                }
             }
             
             
         }
+
+        
     }
 }
