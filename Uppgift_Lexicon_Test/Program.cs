@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using System.Threading;
 
 namespace Uppgift_Lexicon_Test
 {
@@ -10,7 +11,7 @@ namespace Uppgift_Lexicon_Test
         {
             Console.WriteLine("Hello World!");
 
-            check_Palindom();
+            mellan_Number();
             
             Console.ReadLine();
         }
@@ -227,9 +228,23 @@ namespace Uppgift_Lexicon_Test
                 }
 
             } 
-
-            
         }
         
+        public static void mellan_Number()
+        {
+            Console.WriteLine("Enter the start number ");
+            int start_Number = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the end number ");
+            int end_Number = int.Parse(Console.ReadLine());
+
+            for(int i = start_Number; i <= end_Number; i++)
+            {
+                Console.Write($"{i},");
+            }
+
+        }
+
+
     }
 }
