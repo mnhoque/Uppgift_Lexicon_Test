@@ -9,10 +9,31 @@ namespace Uppgift_Lexicon_Test
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Enter the expected number 0-16");
 
-            mellan_Number();
-            
+            //add_elements();
+
+            int caseSwitch = int.Parse(Console.ReadLine());
+            switch (caseSwitch)
+            {
+                case 1:
+                    printHello();
+                    break;
+                case 2:
+                    userInfo();
+                    break;
+                case 3:
+                    backgroundColour();
+                    break;
+                case 4:
+                    print_Date();
+                    break;
+                case 0:
+                    Console.WriteLine("The program is terminated"); 
+                    break;
+            }
+
+
             Console.ReadLine();
         }
         public static void printHello()
@@ -22,8 +43,13 @@ namespace Uppgift_Lexicon_Test
 
         public static void userInfo()
         {
+            Console.WriteLine("Enter the firstname of the person ");
             string user_First_Name = Console.ReadLine();
+
+            Console.WriteLine("Enter the last name of the person ");
             string user_Last_Name = Console.ReadLine();
+
+            Console.WriteLine("Enter the age of a the person");
             int user_Age = int.Parse(Console.ReadLine());
 
             Console.WriteLine("{0} {1} {2}", user_First_Name,user_Last_Name,user_Age);
@@ -245,6 +271,46 @@ namespace Uppgift_Lexicon_Test
 
         }
 
+        private static void check_even_odd()
+        {
+            string x = Console.ReadLine();
 
+            for(int i = 0; i <= x.Length - 1; i++)
+            {
+                int result;
+                if (int.TryParse(x[i].ToString(), out result))
+                {
+                    // user input a valid integer
+                    // result varaible have the input integer
+                    if (result % 2 == 0)
+                    {
+                        Console.WriteLine($"{result} is even");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{result} is odd");
+                    }
+                }
+            }
+        }
+
+        private static void add_elements()
+        {
+            string x = Console.ReadLine();
+            int sum_of_Number = 0;
+            for (int i = 0; i <= x.Length - 1; i++)
+            {
+                int result;
+                
+                if (int.TryParse(x[i].ToString(), out result))
+                {
+                    // user input a valid integer
+                    // result varaible have the input integer
+                    sum_of_Number = sum_of_Number + result;
+                }
+            }
+
+            Console.WriteLine($"sum of total element of a number is {sum_of_Number}");
+        }
     }
 }
