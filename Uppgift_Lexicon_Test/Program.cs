@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Threading;
@@ -9,6 +10,12 @@ namespace Uppgift_Lexicon_Test
     {
         static void Main(string[] args)
         {
+
+            //Person1 person = new Person1("Nazmul");
+
+            //Console.WriteLine(person.Name);
+
+           
             Console.WriteLine("Enter the expected number 0-16");
 
             //add_elements();
@@ -27,6 +34,42 @@ namespace Uppgift_Lexicon_Test
                     break;
                 case 4:
                     print_Date();
+                    break;
+                case 5:
+                    checkBigger(6, 9);
+                    break;
+                case 6:
+                    winner_Or_Looser();
+                    break;
+                case 7:
+                    create_file("Hello man, How are you?");
+                    break;
+                case 8:
+                    read_file();
+                    break;
+                case 9:
+                    convert_decimal();
+                    break;
+                case 10:
+                    print_multiplication();
+                    break;
+                case 11:
+                    create_Array();
+                    break;
+                case 12:
+                    check_Palindom();
+                    break;
+                case 13:
+                    mellan_Number();
+                    break;
+                case 14:
+                    check_even_odd();
+                    break;
+                case 15:
+                    add_elements();
+                    break;
+                case 16:
+                    Charecter_random();
                     break;
                 case 0:
                     Console.WriteLine("The program is terminated"); 
@@ -312,5 +355,63 @@ namespace Uppgift_Lexicon_Test
 
             Console.WriteLine($"sum of total element of a number is {sum_of_Number}");
         }
+
+        public static void Charecter_random()
+        {
+            //Person1 person = new Person1();
+            string health = Console.ReadLine();
+            string strength = Console.ReadLine();
+            string luck = Console.ReadLine();
+
+            //string helath_mot = Console.ReadLine();
+            //string strength_mot = Console.ReadLine();
+            //string luck_mot = Console.ReadLine();
+
+            Person person = new Person();
+           
+            var rand = new Random();
+            var randomNumber = 0;
+
+            if (health == person.health)
+            {
+                randomNumber=rand.Next(1, 6);
+                person.termsList.Add(randomNumber);
+            }
+            if (strength == person.strength)
+            {
+                randomNumber = rand.Next(1, 6);
+                person.termsList.Add(randomNumber);
+            }
+            if (luck == person.luck)
+            {
+                randomNumber = rand.Next(1, 6);
+                person.termsList.Add(randomNumber);
+            }
+
+            foreach (var item in person.termsList)
+            {
+                Console.WriteLine($"The numbers are {item}");
+            }
+
+        }
     }
+
+    class Person
+    {
+        public string health= "Good";
+        public string strength="Strong";
+        public string luck="Bad";
+
+        public List<int> termsList = new List<int>();
+
+        public Person()
+        {
+
+        }
+
+       
+    }
+
+   
+
 }
